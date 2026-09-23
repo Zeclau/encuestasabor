@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { PREGUNTAS } from "@/lib/encuesta";
+import { PREGUNTAS, pregunta as obtenerPregunta, type NuevaRespuesta } from "@/lib/encuesta";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -38,7 +38,9 @@ function Encuesta() {
   async function enviar(finales: Record<string, string>) {
     if (enviando) return;
     setEnviando(true);
-    const { error } = await supabase.from("respuestas").insert(finales);
+    const { error } = await supabase
+      .from("respuestas")
+      .insert(finales as unknown as NuevaRespuesta);
     if (error) {
       setEnviando(false);
       toast.error("No se pudo enviar la encuesta. Intente de nuevo.");
@@ -87,7 +89,7 @@ function Encuesta() {
     );
   }
 
-  const pregunta = PREGUNTAS[paso];
+  const pregunta = obtenerPregunta(paso);
 
   function responder(opcion: string) {
     const finales = { ...respuestas, [pregunta.campo]: opcion };
@@ -145,7 +147,7 @@ function Encuesta() {
             size="lg"
             className="mt-8 h-14 w-full text-lg"
             disabled={!respuestas[pregunta.campo] || enviando}
-            onClick={() => responder(respuestas[pregunta.campo])}
+            onClick={() => responder(respuestas[pregunta.campo] ?? "")}
           >
             {enviando ? "Enviando…" : paso === total - 1 ? "Enviar" : "Siguiente"}
           </Button>

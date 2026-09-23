@@ -13,7 +13,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { PREGUNTAS, type Respuesta } from "@/lib/encuesta";
+import { EDADES, PREGUNTAS, pregunta as obtenerPregunta, type Respuesta } from "@/lib/encuesta";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -64,14 +64,13 @@ function Resultados() {
 
   const cruce = useMemo(() => {
     if (!datos) return [];
-    const p3 = PREGUNTAS[2];
-    const p1 = PREGUNTAS[0];
+    const p3 = obtenerPregunta(2);
     const filtrados = edad === "Todas" ? datos : datos.filter((r) => r.q1 === edad);
     return p3.opciones.map((opcion) => {
       const fila: Record<string, string | number> = {
-        opcion: opcion.split(" (")[0],
+        opcion: opcion.split(" (")[0] ?? opcion,
       };
-      for (const rango of p1.opciones) {
+      for (const rango of EDADES) {
         fila[rango] = filtrados.filter((r) => r.q3 === opcion && r.q1 === rango).length;
       }
       return fila;
@@ -135,7 +134,7 @@ function Resultados() {
         {PREGUNTAS.map((pregunta, indice) => {
           const conteos = pregunta.opciones.map((opcion, i) => ({
             nombre: opcion,
-            corto: opcion.split(" (")[0],
+            corto: opcion.split(" (")[0] ?? opcion,
             valor: datos.filter((r) => r[pregunta.campo] === opcion).length,
             color: COLORES[i % COLORES.length],
           }));
@@ -196,7 +195,7 @@ function Resultados() {
             Cruce: tipo de experiencia (P3) por edad (P1)
           </h2>
           <div className="mt-3 flex flex-wrap gap-2">
-            {["Todas", ...PREGUNTAS[0].opciones].map((rango) => (
+            {["Todas", ...EDADES].map((rango) => (
               <button
                 key={rango}
                 onClick={() => setEdad(rango)}
@@ -218,7 +217,7 @@ function Resultados() {
                 <YAxis allowDecimals={false} />
                 <Tooltip />
                 <Legend />
-                {PREGUNTAS[0].opciones.map((rango, i) => (
+                {EDADES.map((rango, i) => (
                   <Bar
                     key={rango}
                     dataKey={rango}

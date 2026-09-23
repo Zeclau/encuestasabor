@@ -91,4 +91,20 @@ export const PREGUNTAS: Pregunta[] = [
 export type Respuesta = {
   id: string;
   created_at: string;
-} & Record<string, string>;
+  q1: string;
+  q2: string;
+  q3: string;
+  q4: string;
+  q5: string;
+  q6: string;
+  q7: string;
+  q8: string;
+  q9: string;
+  q10: string;
+};
+
+export type NuevaRespuesta = Omit<Respuesta, "id" | "created_at">;
+
+export const pregunta = (indice: number) => PREGUNTAS[indice] as Pregunta;
+
+export const EDADES = pregunta(0).opciones;
