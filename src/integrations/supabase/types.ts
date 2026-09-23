@@ -14,7 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      respuestas: {
+        Row: {
+          created_at: string
+          id: string
+          q1: string
+          q10: string
+          q2: string
+          q3: string
+          q4: string
+          q5: string
+          q6: string
+          q7: string
+          q8: string
+          q9: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          q1: string
+          q10: string
+          q2: string
+          q3: string
+          q4: string
+          q5: string
+          q6: string
+          q7: string
+          q8: string
+          q9: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          q1?: string
+          q10?: string
+          q2?: string
+          q3?: string
+          q4?: string
+          q5?: string
+          q6?: string
+          q7?: string
+          q8?: string
+          q9?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
