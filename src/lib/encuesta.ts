@@ -1,5 +1,5 @@
 export type Pregunta = {
-  campo: string;
+  campo: keyof NuevaRespuesta;
   titulo: string;
   opciones: string[];
 };
