@@ -69,7 +69,9 @@ function Encuesta() {
     return (
       <Pantalla>
         <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 text-center">
-          <UtensilsCrossed className="mx-auto h-16 w-16 text-primary" />
+        <div className="animate-float mx-auto flex h-28 w-28 items-center justify-center rounded-full border border-primary/15 bg-card shadow-xl shadow-primary/20">
+          <UtensilsCrossed className="h-14 w-14 text-primary" />
+        </div>
           <h1 className="mt-6 text-4xl font-extrabold leading-tight text-foreground">
             Turismo gastronómico
           </h1>
@@ -79,11 +81,16 @@ function Encuesta() {
           <Button size="lg" className="mt-8 h-14 w-full text-lg" onClick={() => setPaso(0)}>
             Empezar
           </Button>
-          <p className="mt-10 text-xs text-muted-foreground">
-            Estudio de mercado · Grupo MK2111 · Marketing, 1er año
-            <br />
-            Universidad Nacional Casimiro Sotelo Montenegro, Nicaragua
-          </p>
+        <div className="mt-12 flex items-center justify-center gap-3">
+          <span className="h-px w-10 bg-border" />
+          <UtensilsCrossed className="h-3.5 w-3.5 text-primary/50" />
+          <span className="h-px w-10 bg-border" />
+        </div>
+        <p className="mt-6 text-xs text-muted-foreground">
+          Estudio de mercado · Grupo MK2111 · Marketing, 1er año
+          <br />
+          Universidad Nacional Casimiro Sotelo Montenegro, Nicaragua
+        </p>
         </div>
       </Pantalla>
     );
@@ -159,8 +166,29 @@ function Encuesta() {
 
 function Pantalla({ children }: { children: React.ReactNode }) {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-background px-5 py-10">
-      <div className="w-full max-w-md">{children}</div>
+    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background px-5 py-10">
+      <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-24 -left-20 h-72 w-72 rounded-full bg-accent/10 blur-3xl" />
+      <div className="pointer-events-none absolute -left-16 top-1/3 h-48 w-48 rounded-full bg-secondary blur-2xl" />
+      <svg
+        className="pointer-events-none absolute right-8 top-12 text-primary/15"
+        width="70"
+        height="70"
+        viewBox="0 0 100 100"
+        fill="none"
+      >
+        <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="6" strokeDasharray="12 10" />
+      </svg>
+      <svg
+        className="pointer-events-none absolute bottom-16 right-10 rotate-12 text-accent/15"
+        width="60"
+        height="60"
+        viewBox="0 0 100 100"
+        fill="currentColor"
+      >
+        <path d="M50 8C56 28 72 44 92 50 72 56 56 72 50 92 44 72 28 56 8 50 28 44 44 28 50 8Z" />
+      </svg>
+      <div className="relative z-10 w-full max-w-md">{children}</div>
     </main>
   );
 }
