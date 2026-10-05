@@ -7,12 +7,12 @@ export type Pregunta = {
 export const PREGUNTAS: Pregunta[] = [
   {
     campo: "q1",
-    titulo: "¿Qué edad tiene?",
+    titulo: "🎂 ¿Cuántos años tenés?",
     opciones: ["15-19", "20-29", "30-45", "Más de 45"],
   },
   {
     campo: "q2",
-    titulo: "¿Con qué frecuencia viaja o se desplaza por comer algo específico?",
+    titulo: "🚗 ¿Qué tan seguido viajás o te movés para comer algo específico?",
     opciones: [
       "Nunca",
       "Rara vez (1 vez al año)",
@@ -22,7 +22,7 @@ export const PREGUNTAS: Pregunta[] = [
   },
   {
     campo: "q3",
-    titulo: "¿Qué tipo de experiencia gastronómica prefiere?",
+    titulo: "🍽️ ¿Qué experiencia gastronómica te llama más?",
     opciones: [
       "Cerca (fritanga de barrio, comedor del mercado, cocinera de la esquina)",
       "Local (platos típicos de otra ciudad del país, como el vigorón o el quesillo)",
@@ -32,12 +32,12 @@ export const PREGUNTAS: Pregunta[] = [
   },
   {
     campo: "q4",
-    titulo: "¿Cuánto gasta en promedio en una salida gastronómica turística (por persona)?",
+    titulo: "💰 ¿Cuánto gastás en promedio por persona en una salida gastronómica turística?",
     opciones: ["Menos de C$200", "C$200-500", "C$500-1,000", "Más de C$1,000"],
   },
   {
     campo: "q5",
-    titulo: "¿Qué es lo que más influye en su decisión de visitar un lugar para comer?",
+    titulo: "🔥 ¿Qué es lo que más te convence a la hora de ir a comer a un lugar?",
     opciones: [
       "El precio",
       "La autenticidad y tradición",
@@ -47,7 +47,7 @@ export const PREGUNTAS: Pregunta[] = [
   },
   {
     campo: "q6",
-    titulo: "¿Dónde se informa sobre lugares gastronómicos?",
+    titulo: "📱 ¿Dónde te enterás de los buenos lugares gastronómicos?",
     opciones: [
       "Redes sociales (TikTok, Instagram, Facebook)",
       "Familiares y amigos",
@@ -57,18 +57,19 @@ export const PREGUNTAS: Pregunta[] = [
   },
   {
     campo: "q7",
-    titulo: "¿Con quién suele hacer turismo gastronómico?",
+    titulo: "👥 ¿Con quién salís a hacer turismo gastronómico?",
     opciones: ["Solo", "En pareja", "Con familia", "Con amigos"],
   },
   {
     campo: "q8",
-    titulo: "¿Qué tan importante es que un lugar ofrezca comida tradicional auténtica?",
+    titulo:
+      "🥘 ¿Qué tan importante es para vos que un lugar ofrezca comida tradicional auténtica?",
     opciones: ["Nada importante", "Poco importante", "Importante", "Muy importante"],
   },
   {
     campo: "q9",
     titulo:
-      "¿Pagaría más por una experiencia gastronómica guiada (ruta de sabores, cocinera local, tour por mercados)?",
+      "💸 ¿Pagarías más por una experiencia gastronómica guiada (ruta de sabores, cocinera local, tour por mercados)?",
     opciones: [
       "No, nunca",
       "Solo si es poco más caro",
@@ -78,7 +79,7 @@ export const PREGUNTAS: Pregunta[] = [
   },
   {
     campo: "q10",
-    titulo: "¿Qué le haría falta para hacer más turismo gastronómico?",
+    titulo: "🎯 ¿Qué te falta para hacer más turismo gastronómico?",
     opciones: [
       "Más información y promoción",
       "Precios más accesibles",
