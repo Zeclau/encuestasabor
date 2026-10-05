@@ -5,7 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { toast } from "sonner";
-import { ArrowLeft, UtensilsCrossed, PartyPopper } from "lucide-react";
+import { ArrowLeft, UtensilsCrossed, PartyPopper, GraduationCap } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -86,11 +86,7 @@ function Encuesta() {
           <UtensilsCrossed className="h-3.5 w-3.5 text-primary/50" />
           <span className="h-px w-10 bg-border" />
         </div>
-        <p className="mt-6 text-xs text-muted-foreground">
-          Estudio de mercado · Grupo MK2111 · Marketing, 1er año
-          <br />
-          Universidad Nacional Casimiro Sotelo Montenegro, Nicaragua
-        </p>
+        <p className="mt-6 text-xs text-muted-foreground">Grupo MK2111 · Marketing, 1er año</p>
         </div>
       </Pantalla>
     );
@@ -166,7 +162,7 @@ function Encuesta() {
 
 function Pantalla({ children }: { children: React.ReactNode }) {
   return (
-    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background px-5 py-10">
+    <main className="relative flex min-h-screen flex-col overflow-hidden bg-background px-5 py-6">
       <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 -left-20 h-72 w-72 rounded-full bg-accent/10 blur-3xl" />
       <div className="pointer-events-none absolute -left-16 top-1/3 h-48 w-48 rounded-full bg-secondary blur-2xl" />
@@ -188,7 +184,30 @@ function Pantalla({ children }: { children: React.ReactNode }) {
       >
         <path d="M50 8C56 28 72 44 92 50 72 56 56 72 50 92 44 72 28 56 8 50 28 44 44 28 50 8Z" />
       </svg>
-      <div className="relative z-10 w-full max-w-md">{children}</div>
+      <div className="relative z-10 mx-auto flex w-full max-w-md flex-1 flex-col gap-5">
+        <Encabezado />
+        <div className="flex flex-1 items-center">{children}</div>
+      </div>
     </main>
+  );
+}
+
+function Encabezado() {
+  return (
+    <header className="animate-in fade-in slide-in-from-top-4 duration-500 rounded-3xl border border-primary/15 bg-card/90 p-4 shadow-sm shadow-primary/5">
+      <div className="flex items-start gap-3">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10">
+          <GraduationCap className="h-5 w-5 text-primary" />
+        </div>
+        <p className="text-sm font-extrabold leading-snug text-foreground">
+          Hola, somos estudiantes de 1er año de Marketing de la Universidad Nacional Casimiro Sotelo
+          Montenegro, Nicaragua
+        </p>
+      </div>
+      <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+        Estamos realizando un estudio de mercado sobre turismo gastronómico. Esta información es con
+        fines académicos.
+      </p>
+    </header>
   );
 }
