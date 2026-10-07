@@ -79,16 +79,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Turismo gastronómico" },
+      { title: "Roast Room — Yasser Edition" },
       {
         name: "description",
-        content: "Encuesta de estudio de mercado sobre turismo gastronómico en Nicaragua.",
+        content: "Roasts personalizados. Un expediente, cero excusas.",
       },
-      { name: "author", content: "Grupo MK2111" },
-      { property: "og:title", content: "Turismo gastronómico" },
+      { name: "author", content: "Roast Room" },
+      { property: "og:title", content: "Roast Room — Yasser Edition" },
       {
         property: "og:description",
-        content: "Encuesta de estudio de mercado sobre turismo gastronómico en Nicaragua.",
+        content: "Roasts personalizados. Un expediente, cero excusas.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -104,7 +104,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap",
       },
     ],
   }),
@@ -116,7 +116,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <head>
         <HeadContent />
       </head>
